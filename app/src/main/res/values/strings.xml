@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Ex13</string>
+    <string name="numSort">Sort by numbers</string>
+    <string name="colorSort">Sort by Colors</string>
+    <string name="shuffle">Shuffle</string>
+
+
+</resources>
