@@ -17,7 +17,8 @@
         android:layout_height="match_parent"
         android:layout_alignParentBottom="true"
         android:layout_alignParentStart="true"
-        android:layout_marginBottom="164dp" />
+        android:layout_marginBottom="164dp"
+        android:id="@+id/gridView" />
 
     <LinearLayout
         android:orientation="horizontal"
