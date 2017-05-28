@@ -1,12 +1,20 @@
 package com.example.madaim.ex13;
 
+import android.app.Dialog;
 import android.app.DialogFragment;
+import android.content.DialogInterface;
+import android.graphics.Color;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Adapter;
+import android.widget.Button;
 import android.widget.GridView;
 import android.widget.NumberPicker;
+
+import com.example.madaim.ex13.data.DatabaseHelper;
+import com.example.madaim.ex13.data.Item;
 
 import java.util.HashSet;
 
@@ -15,6 +23,8 @@ import ColorPicker.LineColorPicker;
 public class MainActivity extends AppCompatActivity {
 
     MyAdapter adapter;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -119,6 +129,20 @@ public class MainActivity extends AppCompatActivity {
             }
 
             return palette;
+        }
+    }
+
+    public void rearange (View v){
+        switch (v.getId()){
+            case R.id.numSort:
+                adapter.sortItems(DatabaseHelper.SORT_BY_NUMS);
+                break;
+            case R.id.colorSort:
+                adapter.sortItems(DatabaseHelper.SORT_BY_COLORS);
+                break;
+            case R.id.shuffle:
+                adapter.sortItems(DatabaseHelper.SHUFFLE);
+                break;
         }
     }
 }

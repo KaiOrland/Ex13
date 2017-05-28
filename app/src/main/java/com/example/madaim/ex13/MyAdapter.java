@@ -21,8 +21,9 @@ public class MyAdapter extends ResourceCursorAdapter {
     public int currOrder = DatabaseHelper.SORT_BY_NUMS;
     private DatabaseHelper dbh;
     private Context context;
-    public final static int MAX_NUMBERS = 100;
+    public final static int MAX_NUMBERS = 99;
     private final static int MAX_ITEMS =16;
+
 
     public MyAdapter(Context context, int layout){
     super(context, layout, null, 0);
@@ -68,12 +69,23 @@ public class MyAdapter extends ResourceCursorAdapter {
                 });
             else
                 view.setOnClickListener(null);
-            view.setOnClickListener(null);
+            view.setOnLongClickListener(null);
 
         }
     }
 
     public HashSet<Integer> getExistingNumbers(){
         return this.dbh.getExistingNumbers();
+    }
+
+    public void addNewItem(Item item){
+        this.dbh.addItem(item);
+        changeCursor(this.dbh.getAllItems(currOrder));
+        notifyDataSetChanged();
+    }
+    public void sortItems(int sortBy){
+        this.currOrder = sortBy;
+        changeCursor(this.dbh.getAllItems(sortBy));
+        notifyDataSetChanged();
     }
 }

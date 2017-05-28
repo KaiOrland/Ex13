@@ -18,7 +18,8 @@
         android:layout_alignParentBottom="true"
         android:layout_alignParentStart="true"
         android:layout_marginBottom="164dp"
-        android:id="@+id/gridView" />
+        android:id="@+id/gridView"
+        android:numColumns="4" />
 
     <LinearLayout
         android:orientation="horizontal"
@@ -33,21 +34,24 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="10sp"
-            android:id="@+id/numSort" />
+            android:id="@+id/numSort"
+            android:onClick="rearange"/>
 
         <Button
             android:text="@string/colorSort"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="10sp"
-            android:id="@+id/colorSort" />
+            android:id="@+id/colorSort"
+            android:onClick="rearange"/>
 
         <Button
             android:text="@string/shuffle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="10sp"
-            android:id="@+id/shuffle" />
+            android:id="@+id/shuffle"
+            android:onClick="rearange"/>
     </LinearLayout>
 
 </RelativeLayout>
