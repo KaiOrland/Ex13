@@ -49,9 +49,13 @@ public class MyAdapter extends ResourceCursorAdapter {
             view.setOnLongClickListener(new View.OnLongClickListener() {
                 @Override
                 public boolean onLongClick(View v) {
-                    dbh.deleteItem((Integer) v.getTag());
+                   /*dbh.deleteItem((Integer) v.getTag());
                     changeCursor(dbh.getAllItems(currOrder));
                     notifyDataSetChanged();
+*/
+                    ((MainActivity)context).openNewItemDialog((Integer)v.getTag());
+
+
                     return true;
                 }
             });
@@ -64,7 +68,7 @@ public class MyAdapter extends ResourceCursorAdapter {
                 view.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        ((MainActivity)context).openNewItemDialog();
+                        ((MainActivity)context).openNewItemDialog(-1);
                     }
                 });
             else
@@ -83,6 +87,13 @@ public class MyAdapter extends ResourceCursorAdapter {
         changeCursor(this.dbh.getAllItems(currOrder));
         notifyDataSetChanged();
     }
+
+    public void updateItem(Item item){
+        this.dbh.updateItem(item);
+        changeCursor(this.dbh.getAllItems(currOrder));
+        notifyDataSetChanged();
+    }
+
     public void sortItems(int sortBy){
         this.currOrder = sortBy;
         changeCursor(this.dbh.getAllItems(sortBy));
